@@ -1,0 +1,369 @@
+/* Maison D'Alaric — static stylesheet */
+
+:root {
+  --background: #f6f1e7;
+  --foreground: #2e2620;
+  --card: #fbf8f1;
+  --primary: #1f4638;
+  --primary-foreground: #f6f1e7;
+  --secondary: #ede3d1;
+  --muted-foreground: #6b5b49;
+  --accent: #a2501f;
+  --accent-foreground: #faf6ee;
+  --border: #ddd2bd;
+  --radius: 0.75rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, .logo, .stat-number, .plan-price {
+  font-family: cursive;
+  font-weight: 600;
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.hero a:focus-visible {
+  outline-color: #f0c39e;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 1rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 0.88;
+}
+
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.btn-outline {
+  border-color: var(--foreground);
+  color: var(--foreground);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border: none;
+}
+
+/* Hero banner: the restaurant photograph is stored in images/ */
+.hero {
+  background-image: linear-gradient(90deg, rgba(17, 30, 24, 0.88), rgba(17, 30, 24, 0.43)), url("../images/paris-restaurant.webp");
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+.hero-content {
+  padding-top: 7rem;
+  padding-bottom: 8rem;
+}
+
+.eyebrow {
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #f0c39e;
+}
+
+.hero h1 {
+  margin-top: 1.5rem;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.05;
+}
+
+.hero h1 em {
+  color: #f0c39e;
+}
+
+.lede {
+  margin-top: 2rem;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  color: #f4ebe0;
+}
+
+.hero-actions {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Banner buttons need stronger contrast on the photograph */
+.hero .btn-primary {
+  background: #f6f1e7;
+  color: #1f4638;
+}
+
+.hero .btn-outline {
+  border-color: white;
+  color: white;
+}
+
+/* Stats */
+.stats {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--secondary);
+  padding: 2.5rem 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.25rem;
+}
+
+.stat-label {
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+/* Sections */
+.section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.section h2,
+.plans h2,
+.contact h2 {
+  font-size: clamp(2.25rem, 5vw, 3rem);
+}
+
+/* Services */
+.services-grid {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--border);
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.service-card {
+  background: var(--card);
+  padding: 2.5rem;
+}
+
+.service-index {
+  font-size: 0.875rem;
+  color: var(--accent);
+}
+
+.service-card h3 {
+  margin-top: 0.75rem;
+  font-size: 1.875rem;
+}
+
+.service-card p {
+  margin-top: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+/* Plans */
+.plans {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 6rem 0;
+}
+
+.plans-grid {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.plan-card {
+  border: 1px solid rgba(246, 241, 231, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.plan-card h3 {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.plan-price {
+  margin-top: 1rem;
+  font-size: 2.25rem;
+}
+
+.plan-price span {
+  font-size: 1rem;
+  opacity: 0.7;
+  font-family: serif;
+}
+
+.plan-card p {
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+/* Contact */
+.contact {
+  max-width: 48rem;
+  text-align: center;
+}
+
+.contact-sub {
+  margin-top: 1rem;
+  color: var(--muted-foreground);
+}
+
+/* The Typeform is embedded directly in the contact section. */
+.typeform-wrapper {
+  margin-top: 2.5rem;
+  height: 620px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: white;
+}
+
+.typeform-wrapper iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.form-fallback {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+}
+
+.form-fallback a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  /* Text spans the full width on phones, so darken the whole photo evenly */
+  .hero {
+    background-image: linear-gradient(rgba(17, 30, 24, 0.82), rgba(17, 30, 24, 0.82)), url("../images/paris-restaurant.webp");
+  }
+
+  .hero-content {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+
+  .typeform-wrapper {
+    height: 680px;
+  }
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
